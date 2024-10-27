@@ -4,10 +4,7 @@ import TipCard from "./TipCard";
 const Homepage = () => {
   return (
     <div>
-      {/* Page Content */}
       <div className="container mt-5">
-
-        {/* Second Photo Grid */}
         <div className="row text-center mt-4">
           <div className="col-md-3 border rounded">
             <img

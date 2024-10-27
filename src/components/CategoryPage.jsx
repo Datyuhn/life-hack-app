@@ -18,16 +18,17 @@ const CategoryPage = () => {
         <>
           <h2 className="my-4">{category.name} - Các mẹo và thủ thuật</h2>
           {posts.length > 0 ? (
-            <div>
+            <div className="row">
               {postList.map((post) => {
                 return (
-                  <div className="col-md-3">
+                  <div className="col-xl-3 col-lg-4 col-sm-6">
                     <TipCard
                       id={post.id}
                       srcImage={post.imageSource}
                       title={post.title}
                       categoryType={post.categoryType}
                       content={post.content}
+                      isFavourite={post.isFavourite}
                     />
                   </div>
                 );

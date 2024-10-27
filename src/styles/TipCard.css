@@ -1,0 +1,11 @@
+.tip-card {
+  height: 350px;
+  max-width: 300px;
+  margin: 10px;
+  overflow: hidden;     
+}
+
+.tip-card-img {
+  max-height: 150px;    
+  object-fit: cover;
+}

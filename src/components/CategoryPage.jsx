@@ -19,7 +19,7 @@ const CategoryPage = () => {
       });
     }
   }, []);
-
+  
   return (
     <div className="container">
       {category ? (

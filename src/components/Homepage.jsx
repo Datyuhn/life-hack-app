@@ -1,21 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TipCard from "./TipCard";
+import { posts as defaultPosts } from "../posts";
 
 const Homepage = () => {
+  const [posts, setPosts] = useState([]);
+  const savedPosts = JSON.parse(sessionStorage.getItem("posts"));
+
+  useEffect(() => {
+    if (savedPosts) {
+      setPosts(savedPosts);
+    } else {
+      sessionStorage.setItem("posts", JSON.stringify(defaultPosts));
+      setPosts(defaultPosts);
+    }
+  }, []);
+
   return (
-    <div>
-      <div className="container mt-5">
-        <div className="row text-center mt-4">
-          <div className="col-md-3 border rounded">
-            <img
-              src="/w3images/popsicle.jpg"
-              alt="Popsicle"
-              className="img-fluid"
-            />
-            <h3>All I Need Is a Popsicle</h3>
-            <p>Lorem ipsum text praesent tincidunt ipsum lipsum.</p>
-          </div>
-        </div>
+    <div className="container">
+      <div className="row mt-5">
+        {posts.map((post) => {
+          return (
+            <div className="col-xl-3 col-lg-4 col-sm-6">
+              <TipCard
+                id={post.id}
+                srcImage={post.imageSource}
+                // title={post.title}
+                // categoryType={post.categoryType}
+                // content={post.content}
+                // isFavourite={post.isFavourite}
+              />
+            </div>
+          );
+        })}
 
         {/* About Section */}
         <div className="text-center mt-5" id="about">
